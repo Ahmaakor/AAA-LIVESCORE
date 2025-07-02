@@ -1,15 +1,116 @@
-body {
-  background-color: #00050e;
-  color: #eaeff3;
-  font-family: "Nunito Sans", sans-serif, 'Courier New', Courier, monospace;
-  margin: 0;
-  padding: 0;
+:root {
+  --primary-default: #7a84ff;
+  --primary-variant: #00050e;
+  --primary-highlight: rgba(122, 132, 255, 0.25);
+  --primary-hover: hsl(235, 100.0%, 78.9%);
+  --primary-selected: hsl(235, 100.0%, 68.9%);
+  --secondary-default: #46c252;
+  --secondary-variant: #03692a;
+  --secondary-highlight: rgba(70, 194, 82, 0.25);
+  --secondary-hover: hsl(126, 50.4%, 56.8%);
+  --secondary-selected: hsl(126, 50.4%, 46.8%);
+  --neutral-default: #a4a9b3;
+  --neutral-variant: #BCC2CF;
+  --neutral-highlight: rgba(54, 63, 83, 0.5);
+  --on-color-primary: #FCFCFE;
+  --on-color-secondary: rgba(255, 255, 255, 0.6);
+  --on-color-highlight-nLv1: rgba(255, 255, 255, 0.25);
+  --on-color-highlight-nLv2: rgba(255, 255, 255, 0.1);
+  --on-color-default: #eaeff3;
+  --on-color-hover: #eaeff3;
+  --on-color-selected: #f2f2f2;
+  --surface-s0: #00050e;
+  --surface-s1: #171C1F;
+  --surface-s2: rgba(0, 0, 0, 0.5);
+  --surface-sp: #272C32;
+  --surface-t: #ECEDEF;
+  --on-surface-nLv1: #ECEDEF;
+  --on-surface-nLv2: rgba(255, 255, 255, 0.75);
+  --on-surface-nLv3: rgba(255, 255, 255, 0.5);
+  --on-surface-nLv4: rgba(255, 255, 255, 0.15);
+  --on-surface-nLv5: rgba(255, 255, 255, 0.08);
+  --error-default: #e35c47;
+  --error-hover: #e66f5d;
+  --error-selected: #e04831;
+  --alert-default: #dbaa3f;
+  --alert-hover: #dfb355;
+  --alert-selected: #d7a02a;
+  --success-default: #39b57a;
+  --success-hover: #44c486;
+  --success-selected: #33a26c;
+  --effect-elevation1: rgba(0, 0, 0, 0.24);
+  --effect-elevation2: rgba(0, 0, 0, 0.40);
+  --effect-elevation3: rgba(0, 0, 0, 0.48);
+  --overlay-darken1: rgba(0, 0, 0, 0.25);
+  --overlay-darken2: rgba(0, 0, 0, 0.5);
+  --overlay-darken3: rgba(0, 0, 0, 0.65);
+  --score-rating-s00: #a4a9b3;
+  --score-rating-s10: #dc0c00;
+  --score-rating-s60: #ed7e07;
+  --score-rating-s65: #d9af00;
+  --score-rating-s70: #00c424;
+  --score-rating-s80: #00adc4;
+  --score-rating-s90: #374df5;
+  --playoffs-promotion-to-x: #3bb552;
+  --playoffs-promotion-to-x-playoff: #80ea79;
+  --playoffs-promotion-to-y: #288eea;
+  --playoffs-promotion-to-y-playoff: #8fcbff;
+  --playoffs-promotion-to-z: #2f9d9d;
+  --playoffs-promotion-to-z-playoff: #0ad8d8;
+  --playoffs-promotion-to-z-playoff-secondary: #befefe;
+  --playoffs-promotion-to-relegation: #ef5158;
+  --playoffs-promotion-to-relegation-playoff: #ffb936;
+  --player-position-forward: #e73b3b;
+  --player-position-midfield: #1eb85d;
+  --player-position-defender: #4b9def;
+  --player-position-goalkeeper: #e8b345;
+  --heatmap-hm1: #446c46;
+  --heatmap-hm2: #7d943c;
+  --heatmap-hm3: #ffd630;
+  --heatmap-hm4: #f0802b;
+  --heatmap-hm5: #f03530;
+  --graphics-terrain-football: #446c46;
+  --terrain-grass: #488331;
+  --terrain-clay: #a06b32;
+  --terrain-default: #808080;
+  --tournaments-wta: #db5cc7;
+  --social-twitter: #00acee;
+  --social-facebook: #ECEDEF;
+  --social-apple: #ECEDEF;
+  --social-huawei-symbol: #ECEDEF;
+  --social-huawei-text: #ECEDEF;
+  --sentiment-positive: #46c252;
+  --sentiment-positive-highlight: rgba(70, 194, 82, 0.25);
+  --sentiment-negative: #e73b3b;
+  --sentiment-negative-highlight: rgba(231, 59, 59, 0.25);
+  --header-default: #111517;
+  --mma-red-default: #de4e6b;
+  --mma-red-highlight: rgba(222, 78, 107, 0.25);
+  --mma-blue-default: #467ce5;
+  --mma-blue-highlight: rgba(70, 124, 229, 0.25);
+  --football-shotmap-home-idle: #0b5a13;
+  --football-shotmap-home-selectedHover: #46c252;
+  --football-shotmap-away-idle: #2c3596;
+  --football-shotmap-away-selectedHover: #7a84ff;
+  --editor-pink: #FF7DA8;
+  --editor-pink-highlight: rgba(255, 64, 127, 0.15);
 }
 
-*{
+body {
+  background-color: var(--surface-s0);
+  color: var(--on-color-default);
+  font-family: "Nunito Sans", sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: 1px solid red; */
 }
 
 .container {
@@ -18,4 +119,3 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
 }
-

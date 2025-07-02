@@ -1,31 +1,202 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #00050e;
-  padding: 1rem;
+  /* background: linear-gradient(90deg, var(--header-default) 60%, var(--primary-default) 100%); */
+  background-color: var(--surface-sp);
+  box-shadow: 0 2px 16px 0 var(--effect-elevation1);
+  padding: 0.5rem 0;
   color: #eaeff3;
+  transition: box-shadow 0.2s;
 }
 
 .container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  /* padding: 0 2rem; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.5rem; */
+}
+
+.topBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--surface-s1);
 }
 
 .logoContainer {
   display: flex;
-  gap: .5rem;
+  gap: 1rem;
   align-items: center;
 }
 
 .logo {
-  height: 3rem;
-  pointer-events: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  background: var(--surface-s1);
+  box-shadow: 0 2px 8px 0 var(--effect-elevation2);
+  object-fit: cover;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-family: "Rajdhani", sans-serif;
-  margin: 0.5rem 0;
+  margin: 0;
+  letter-spacing: 2px;
+  font-weight: 700;
+  /* color: var(--primary-default); */
+  text-shadow: 0 2px 8px var(--effect-elevation1);
 }
+
+.navLinks {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.navLinks a {
+  color: var(--on-color-default);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navLinks a:hover {
+  color: var(--neutral-default);
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background: var(--surface-s1);
+  border-radius: 2rem;
+  padding: 0.2rem 1rem;
+  font-size: 1.3rem;
+  box-shadow: 0 1px 4px 0 var(--effect-elevation1);
+  transition: box-shadow 0.2s;
+}
+
+.searchContainer:focus-within {
+  box-shadow: 0 2px 8px 0 var(--effect-elevation2);
+}
+
+.searchContainer input {
+  border: none;
+  width: 25rem;
+  background: transparent;
+  color: var(--on-color-default);
+  outline: none;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.searchContainer ion-icon {
+  color: var(--primary-default);
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.actionButton {
+  /* background: linear-gradient(90deg, var(--primary-default) 60%, var(--secondary-default) 100%); */
+  background: var(--on-color-default);
+  color: var(--header-default);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.2rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-family: 'Nunito Sans', sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 var(--effect-elevation1);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.actionButton:hover {
+  /* background: linear-gradient(90deg, var(--primary-hover) 60%, var(--secondary-hover) 100%); */
+  background: var(--primary-hover);
+  box-shadow: 0 4px 16px 0 var(--effect-elevation2);
+}
+
+.bottomBar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.3rem;
+}
+
+.bottomNav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.bottomNavLink {
+  color: var(--on-color-default);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.bottomNavLink:hover {
+  background: var(--primary-highlight);
+  color: var(--primary-default);
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  .logoContainer h1{
+    font-size: 1.2rem;
+  }
+  .searchContainer input {
+    width: 10rem;
+  }
+  .bottomNav {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 0.2rem;
+  }
+  .topBar {
+    /* flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start; */
+  }
+  .bottomBar {
+    padding-top: 0.2rem;
+  }
+  .searchContainer input {
+    width: 6rem;
+    font-size: 0.9rem;
+  }
+  .bottomNav {
+    gap: 0.5rem;
+  }
+  .bottomNavLink {
+    font-size: 0.95rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
