@@ -1,0 +1,81 @@
+.sidebar {
+  position: sticky;
+  top: 2rem;
+  height: 80vh;
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--surface-sp);
+  box-shadow: 0 2px 16px 0 var(--effect-elevation1);
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  color: #eaeff3;
+  transition: box-shadow 0.2s;
+  gap: 2.5rem;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--primary-default);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.logoSub {
+  font-size: 1rem;
+  color: var(--on-surface-nLv2);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.navItem {
+  text-decoration: none;
+  color: var(--on-color-default);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  transition: background 0.16s, color 0.16s;
+}
+
+.navItem:hover,
+.navItem:focus {
+  background: var(--primary-highlight);
+  color: var(--primary-default);
+}
+
+.userSection {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--on-surface-nLv4);
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-default);
+}
+
+.username {
+  font-size: 1rem;
+  color: var(--on-color-default);
+  font-weight: 600;
+}
