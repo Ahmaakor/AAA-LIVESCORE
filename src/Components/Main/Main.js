@@ -2,20 +2,31 @@ import React, { useState } from 'react'
 import styles from './Main.module.css';
 import Sidebar from '../SIdebar/Sidebar';
 import Played from '../Played/Played';
-import Home from '../Home/Home';
+import All from '../All/All';
 import Fixtures from '../Fixtures/Fixtures';
+import Matches from '../Matches/Matches';
+import Live from '../Live/Live';
+import Competitions from '../Competitions/Competitions';
+import Leagues from '../Leagues/Leagues';
+import Teams from '../Teams/Teams';
 
 function Main() {
-    const [currentPage, setCurrentPage] = useState("home");
-    return (
-        <main className={`container ${styles.main}`}>
-            <Sidebar currentPage={currentPage} onNavChange={setCurrentPage} />
-            {/* {currentPage != 'home' || 'fixtures' && <Home />} */}
-            {currentPage === "home" && <Home />}
-            {currentPage === "fixtures" && <Fixtures />}
-            <Played />
-        </main>
-    )
+  const [currentPage, setCurrentPage] = useState("all");
+  return (
+    <main className={`container ${styles.main}`}>
+      <Sidebar currentPage={currentPage} onNavChange={setCurrentPage} />
+      <section className={styles.mainContent}>
+        {currentPage === "all" && <All />}
+        {currentPage === "fixtures" && <Fixtures />}
+        {currentPage === "matches" && <Matches />}
+        {currentPage === "live" && <Live />}
+        {currentPage === "competitions" && <Competitions />}
+        {currentPage === "leagues" && <Leagues />}
+        {currentPage === "teams" && <Teams />}
+      </section>
+      <Played />
+    </main>
+  )
 }
 
 export default Main;

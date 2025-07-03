@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 18rem 1fr 18rem;
     gap: 1rem;
+    padding: 0 1rem;
 }
 
 @media (max-width: 1200px) {

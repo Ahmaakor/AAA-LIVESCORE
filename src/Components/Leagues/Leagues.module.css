@@ -1,0 +1,31 @@
+.leagues {
+  background: var(--surface-s1);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 2px 16px 0 var(--effect-elevation1);
+  color: var(--on-color-default);
+}
+.leagueList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.leagueCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-sp);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 8px 0 var(--effect-elevation2);
+}
+.name {
+  font-weight: 600;
+}
+.country {
+  color: var(--primary-default);
+  font-weight: 500;
+}

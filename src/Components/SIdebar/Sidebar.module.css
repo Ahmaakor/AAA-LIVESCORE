@@ -94,15 +94,19 @@
     width: calc(100vw - 3rem);
     height: auto;
     max-height: none;
-    padding: 1rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 2rem;
     gap: 1.5rem;
+    position: sticky;
+  top: 0;
   }
 
   .nav {
     overflow-x: scroll;
-    width: 100% !important;
+    width: calc(100% - 1rem);
     flex-direction: row;
-    gap: 1rem;
+    padding: 00 00;
+    gap: 0.5rem;
     white-space: nowrap;
     scrollbar-width: none;
   }
@@ -113,14 +117,14 @@
   .navItem {
     font-size: 1rem;
     padding: 0.5rem 0.75rem;
-    min-width: 100px;
+    min-width: 80px;
     flex: 0 0 auto;
     border-left: none;
-    border-bottom: 4px solid transparent;
+    /* border-bottom: 4px solid transparent; */
     border-radius: 0.2rem 0.2rem 0 0;
   }
   .navItem.active {
-    border-bottom: 4px solid var(--primary-default);
+    /* border-bottom: 4px solid var(--primary-default); */
     border-left: none;
   }
 

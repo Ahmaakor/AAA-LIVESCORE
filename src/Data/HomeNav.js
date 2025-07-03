@@ -1,8 +1,8 @@
 export const navData = [
     {
-        value: "home",
-        icon: "home",
-        text: "Home",
+        value: "all",
+        icon: "grid",
+        text: "All",
     },
     {
         value: "matches",

@@ -1,6 +1,6 @@
 .header {
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
   z-index: 100;
   display: flex;
   align-items: center;
@@ -172,13 +172,13 @@
     padding: 0 0.2rem;
   }
   .bottomBar {
-    padding-top: 0.2rem;
+    padding-top: 0.5rem;
   }
   .bottomNav {
     gap: 0.5rem;
   }
   .bottomNavLink {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     padding: 0.2rem 0.5rem;
   }
 }
