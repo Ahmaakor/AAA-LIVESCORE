@@ -1,0 +1,80 @@
+.played{
+  height: calc(80vh - 1rem);
+  max-height: 40rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--surface-sp);
+  box-shadow: 0 2px 16px 0 var(--effect-elevation1);
+  border-radius: 1.25rem;
+  padding: 1.5rem 1rem;
+  color: #eaeff3;
+  transition: box-shadow 0.2s;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-default);
+  letter-spacing: 0.5px;
+}
+
+.gamesList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.gameCard {
+  background: var(--surface-s1);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 8px 0 var(--effect-elevation2);
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.team {
+  flex: 1;
+  text-align: center;
+  color: var(--on-color-default);
+}
+
+.score {
+  flex: 0.7;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-default);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: var(--on-surface-nLv2);
+}
+
+.status {
+  font-weight: 600;
+  color: var(--success-default);
+}
+
+.date {
+  font-style: italic;
+}
+
