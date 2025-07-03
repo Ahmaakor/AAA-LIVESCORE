@@ -1,26 +1,8 @@
 .main {
+    margin-top: 1rem !important;
     display: grid;
-    grid-template-columns: 25rem 1fr;
-    gap: 2.5rem;
-    min-height: 80vh;
-    margin: 1rem 0;
-    max-width: 1400px;
-    width: 100%;
-}
-
-.content {
-    background: var(--surface-s1);
-    background-image: url(https://avatars.mds.yandex.net/i?id=fc24954494ec2b02bf1aeb68c1c06e1002fa2791-4970622-images-thumbs&n=13);
-    background-size: cover;
-    border-radius: 1.25rem;
-    padding: 2.5rem 2rem;
-    box-shadow: 0 2px 16px 0 var(--effect-elevation1);
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1.5rem;
+    grid-template-columns: 18rem 1fr 18rem;
+    gap: 1rem;
 }
 
 @media (max-width: 900px) {
@@ -28,8 +10,5 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
         margin: 2rem 0.5rem;
-    }
-    .content {
-        padding: 1.5rem;
     }
 }

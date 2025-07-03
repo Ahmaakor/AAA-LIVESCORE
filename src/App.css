@@ -1,9 +1,9 @@
 :root {
-  --primary-default: #7a84ff;
+  --primary-default: #2fdbe7;
   --primary-variant: #00050e;
-  --primary-highlight: rgba(122, 132, 255, 0.25);
-  --primary-hover: hsl(235, 100.0%, 78.9%);
-  --primary-selected: hsl(235, 100.0%, 68.9%);
+  --primary-highlight: #2fdbe740;
+  --primary-hover: hsl(235, 100%, 79%);
+  --primary-selected: hsl(235, 100%, 69%);
   --secondary-default: #46c252;
   --secondary-variant: #03692a;
   --secondary-highlight: rgba(70, 194, 82, 0.25);

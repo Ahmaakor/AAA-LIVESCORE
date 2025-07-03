@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../../Assets/Images/logo.svg'
 import styles from './Header.module.css'
 
@@ -21,11 +22,10 @@ function Header() {
         </div>
         <div className={styles.bottomBar}>
           <nav className={styles.bottomNav}>
-            <a href="/" className={styles.bottomNavLink}>Home</a>
-            <a href="/news" className={styles.bottomNavLink}>News</a>
-            <a href="/live" className={styles.bottomNavLink}>Live</a>
-            <a href="/results" className={styles.bottomNavLink}>Results</a>
-            <a href="/fixtures" className={styles.bottomNavLink}>Fixtures</a>
+            <Link to="/" className={`${styles.bottomNavLink} ${styles.active}`}>Home</Link>
+            <Link to="/news" className={styles.bottomNavLink}>News</Link>
+            <Link to="/live" className={styles.bottomNavLink}>Live</Link>
+            <Link to="/results" className={styles.bottomNavLink}>Results</Link>
           </nav>
         </div>
 

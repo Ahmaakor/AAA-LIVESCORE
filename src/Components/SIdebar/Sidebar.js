@@ -1,18 +1,47 @@
 import React from 'react'
 import styles from "./Sidebar.module.css"
+import { Link } from 'react-router-dom'
 
 function Sidebar() {
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.logo}>
-        <span>AAA</span>
-        <span className={styles.logoSub}>LiveScore</span>
-      </div>
       <nav className={styles.nav}>
-        <a href="#" className={styles.navItem}>Live Scores</a>
-        <a href="#" className={styles.navItem}>News</a>
-        <a href="#" className={styles.navItem}>Standings</a>
-        <a href="#" className={styles.navItem}>Teams</a>
+        <Link to="/" className={`${styles.navItem} ${styles.active}`}>
+          <div className={styles.navIcon}>
+            <ion-icon name="football"></ion-icon>
+          </div>
+          <span className={styles.navText}>Home</span>
+        </Link>
+        <Link to="/fixtures" className={styles.navItem}>
+          <div className={styles.navIcon}>
+            <ion-icon name="calendar"></ion-icon>
+          </div>
+          <span className={styles.navText}>Fixtures</span>
+        </Link>
+        <Link to="/" className={styles.navItem}>
+          <div className={styles.navIcon}>
+            <ion-icon name="radio-button-on"></ion-icon>
+          </div>
+          <span className={styles.navText}>Live</span>
+        </Link>
+        <Link to="/" className={styles.navItem}>
+          <div className={styles.navIcon}>
+            <ion-icon name="podium"></ion-icon>
+          </div>
+          <span className={styles.navText}>Competitions</span>
+        </Link>
+        <Link to="/" className={styles.navItem}>
+          <div className={styles.navIcon}>
+            <ion-icon name="list"></ion-icon>
+          </div>
+          <span className={styles.navText}>Leagues</span>
+        </Link>
+        <Link to="/" className={styles.navItem}>
+          <div className={styles.navIcon}>
+            <ion-icon name="shield"></ion-icon>
+          </div>
+          <span className={styles.navText}>Teams</span>
+        </Link>
       </nav>
       <div className={styles.userSection}>
         <img

@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: linear-gradient(90deg, var(--header-default) 60%, var(--primary-default) 100%); */
   background-color: var(--surface-sp);
   box-shadow: 0 2px 16px 0 var(--effect-elevation1);
   padding: 0.5rem 0;
@@ -16,8 +15,6 @@
 .container {
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
-  /* padding: 0 2rem; */
   display: flex;
   flex-direction: column;
   /* gap: 0.5rem; */
@@ -76,7 +73,7 @@
   display: flex;
   align-items: center;
   background: var(--surface-s1);
-  border-radius: 2rem;
+  border-radius: 0.2rem;
   padding: 0.2rem 1rem;
   font-size: 1.3rem;
   box-shadow: 0 1px 4px 0 var(--effect-elevation1);
@@ -110,7 +107,6 @@
 }
 
 .actionButton {
-  /* background: linear-gradient(90deg, var(--primary-default) 60%, var(--secondary-default) 100%); */
   background: var(--on-color-default);
   color: var(--header-default);
   border: none;
@@ -122,12 +118,12 @@
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 0 2px 8px 0 var(--effect-elevation1);
-  transition: background 0.2s, box-shadow 0.2s;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
 .actionButton:hover {
-  /* background: linear-gradient(90deg, var(--primary-hover) 60%, var(--secondary-hover) 100%); */
-  background: var(--primary-hover);
+  background: var(--primary-default);
+  /* color: var(--on-color-default); */
   box-shadow: 0 4px 16px 0 var(--effect-elevation2);
 }
 
@@ -145,17 +141,34 @@
 }
 
 .bottomNavLink {
+  position: relative;
   color: var(--on-color-default);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 1px;
   padding: 0.3rem 0.8rem;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   transition: background 0.2s, color 0.2s;
 }
 
-.bottomNavLink:hover {
+.bottomNavLink::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  content: '';
+  background-color: var(--primary-default);
+  height: 4px;
+  width: 0;
+  transition: width 0.2s ease-in-out;
+}
+
+.bottomNavLink:hover::after, .bottomNavLink.active::after {
+  width: 100%;
+}
+
+.bottomNavLink:hover, .bottomNavLink.active {
   background: var(--primary-highlight);
   color: var(--primary-default);
 }
