@@ -1,6 +1,7 @@
 .content {
     background: var(--surface-s1);
-    background-image: url(https://avatars.mds.yandex.net/i?id=fab02b1473012d74dd26bb89c78f228aceb0a853-12805659-images-thumbs&n=13);
+    background-image: url(https://avatars.mds.yandex.net/i?id=4afc9934f6a0a56795e2135f40653b30f339c2d2-5179924-images-thumbs&n=13);
+    background-position: center;
     background-size: cover;
     border-radius: 1.25rem;
     padding: 2.5rem 2rem;

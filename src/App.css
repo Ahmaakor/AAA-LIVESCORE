@@ -105,6 +105,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  background-image: url(./Assets/Images/logo3.png);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-attachment: fixed; 
+  backdrop-filter: blur(10px);
 }
 
 * {

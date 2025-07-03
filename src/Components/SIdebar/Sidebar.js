@@ -20,14 +20,14 @@ function Sidebar({ currentPage, onNavChange }) {
           </button>
         ))}
       </nav>
-      <div className={styles.userSection}>
+      {/* <div className={styles.userSection}>
         <img
           src="https://ui-avatars.com/api/?name=User"
           alt="User"
           className={styles.avatar}
         />
         <span className={styles.username}>Guest</span>
-      </div>
+      </div> */}
     </aside>
   )
 }

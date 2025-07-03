@@ -88,3 +88,59 @@
   color: var(--on-color-default);
   font-weight: 600;
 }
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: calc(100vw - 3rem);
+    height: auto;
+    max-height: none;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .nav {
+    overflow-x: scroll;
+    width: 100% !important;
+    flex-direction: row;
+    gap: 1rem;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar {
+    display: none; 
+  }
+
+  .navItem {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    min-width: 100px;
+    flex: 0 0 auto;
+    border-left: none;
+    border-bottom: 4px solid transparent;
+    border-radius: 0.2rem 0.2rem 0 0;
+  }
+  .navItem.active {
+    border-bottom: 4px solid var(--primary-default);
+    border-left: none;
+  }
+
+  .navIcon {
+    font-size: 1.2em;
+  }
+
+  .userSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .avatar {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .username {
+    font-size: 0.9rem;
+  }
+}

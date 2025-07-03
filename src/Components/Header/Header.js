@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../Assets/Images/logo.svg'
 import styles from './Header.module.css'
+import SearchBar from '../SearchBar/SearchBar'
 
 function Header() {
   return (
@@ -12,14 +13,20 @@ function Header() {
             <img src={logo} alt="Logo" className={styles.logo} />
             <h1>AAA LiveScore</h1>
           </div>
-          <div className={styles.searchContainer}>
-            <ion-icon name="search"></ion-icon>
-            <input type="text" placeholder="Search for players, Leagues, Team and so on..." className={styles.searchInput} />
+          
+          <div className={styles.search_desktop}>
+            <SearchBar />
           </div>
+
           <div className={styles.actions}>
             <button className={styles.actionButton}>Sign Up</button>
           </div>
         </div>
+
+        <div className={styles.search_mobile}>
+          <SearchBar />
+        </div>
+
         <div className={styles.bottomBar}>
           <nav className={styles.bottomNav}>
             <Link to="/" className={`${styles.bottomNavLink} ${styles.active}`}>Home</Link>

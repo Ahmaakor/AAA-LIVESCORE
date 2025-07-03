@@ -5,10 +5,18 @@
     gap: 1rem;
 }
 
+@media (max-width: 1200px) {
+    .main {
+        grid-template-columns: 13rem 1fr 15rem;
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+}
 @media (max-width: 900px) {
     .main {
+        /* max-width: 90vw !important; */
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        margin: 2rem 0.5rem;
+        margin: 2rem 0;
     }
 }

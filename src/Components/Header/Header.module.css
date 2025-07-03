@@ -20,6 +20,14 @@
   /* gap: 0.5rem; */
 }
 
+.search_desktop {
+  display: block;
+}
+
+.search_mobile {
+  display: none;
+}
+
 .topBar {
   display: flex;
   justify-content: space-between;
@@ -69,38 +77,6 @@
   color: var(--neutral-default);
 }
 
-.searchContainer {
-  display: flex;
-  align-items: center;
-  background: var(--surface-s1);
-  border-radius: 0.2rem;
-  padding: 0.2rem 1rem;
-  font-size: 1.3rem;
-  box-shadow: 0 1px 4px 0 var(--effect-elevation1);
-  transition: box-shadow 0.2s;
-}
-
-.searchContainer:focus-within {
-  box-shadow: 0 2px 8px 0 var(--effect-elevation2);
-}
-
-.searchContainer input {
-  border: none;
-  width: 25rem;
-  background: transparent;
-  color: var(--on-color-default);
-  outline: none;
-  padding: 0.5rem 0.8rem;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-.searchContainer ion-icon {
-  color: var(--primary-default);
-  font-size: 1.3rem;
-  margin-right: 0.5rem;
-}
-
 .actions {
   display: flex;
   gap: 1rem;
@@ -113,7 +89,7 @@
   padding: 0.5rem 1rem;
   border-radius: 0.2rem;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: 'Nunito Sans', sans-serif;
   text-transform: uppercase;
   cursor: pointer;
@@ -180,8 +156,11 @@
   .logoContainer h1{
     font-size: 1.2rem;
   }
-  .searchContainer input {
-    width: 10rem;
+  .search_desktop {
+    display: none;
+  }
+  .search_mobile {
+    display: block;
   }
   .bottomNav {
     gap: 1rem;
@@ -192,17 +171,8 @@
   .container {
     padding: 0 0.2rem;
   }
-  .topBar {
-    /* flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start; */
-  }
   .bottomBar {
     padding-top: 0.2rem;
-  }
-  .searchContainer input {
-    width: 6rem;
-    font-size: 0.9rem;
   }
   .bottomNav {
     gap: 0.5rem;

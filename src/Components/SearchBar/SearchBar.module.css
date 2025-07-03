@@ -1,0 +1,31 @@
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background: var(--surface-s1);
+  border-radius: 0.2rem;
+  padding: 0.2rem 1rem;
+  font-size: 1.3rem;
+  box-shadow: 0 1px 4px 0 var(--effect-elevation1);
+  transition: box-shadow 0.2s;
+}
+
+.searchContainer:focus-within {
+  box-shadow: 0 2px 8px 0 var(--effect-elevation2);
+}
+
+.searchContainer input {
+  border: none;
+  width: 25rem;
+  background: transparent;
+  color: var(--on-color-default);
+  outline: none;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.searchContainer ion-icon {
+  color: var(--primary-default);
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+}
