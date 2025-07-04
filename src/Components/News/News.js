@@ -22,6 +22,31 @@ function News() {
     fetchNews();
   }, []);
 
+  function getTimeAgo(updatedAt) {
+    if (!updatedAt || !updatedAt.unit || updatedAt.time == null) return 'Unknown time';
+    const time = updatedAt.time;
+    switch (updatedAt.unit) {
+      case 'news.day':
+        return `${time} day ago`;
+      case 'news.days':
+        return `${time} days ago`;
+      case 'news.hour':
+        return `${time} hour ago`;
+      case 'news.hours':
+        return `${time} hours ago`;
+      case 'news.munite':
+        return `${time} munite ago`;
+      case 'news.munites':
+        return `${time} munites ago`;
+      case 'news.second':
+      case 'news.seconds':
+      case 'news.now':
+        return 'Just now';
+      default:
+        return 'Unknown time';
+    }
+  }
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!news || !news.homepageArticles) return <div>No news available.</div>;
@@ -38,15 +63,13 @@ function News() {
 
       {news.homepageArticles.map((items, idx) => (
 
-        <section className={styles.newsList}>
+        <section className={styles.newsList} key={idx}>
           { items.articles.map((article, i) => (
 
-            
-            
             <article className={styles.newsCard} key={i}>
               {article.mainMedia && article.mainMedia.length > 0 && (
                 <img
-                src={article.mainMedia[0].gallery.url}
+                  src={article.mainMedia[0].gallery.url}
                   alt={article.title}
                   className={styles.newsImage}
                 />
@@ -54,9 +77,7 @@ function News() {
               <div className={styles.newsContent}>
                 <h2 className={styles.newsTitle}>{article.title}</h2>
                 <p className={styles.newsMeta}>
-                  Published on {article.updatedAt.unit === 'news.day'
-                    ? `${article.updatedAt.time} Days Ago`
-                    : `${article.updatedAt.time} Hours Ago`}
+                  {getTimeAgo(article.updatedAt)}
                 </p>
                 <Link to={`/news/${article.slug}`} className={styles.readMore}>
                   Read More →
