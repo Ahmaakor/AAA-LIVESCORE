@@ -5,6 +5,11 @@ export const navData = [
         text: "All",
     },
     {
+        value: "live",
+        icon: "radio-button-on",
+        text: "Live",
+    },
+    {
         value: "matches",
         icon: "football",
         text: "Matches",
@@ -13,11 +18,6 @@ export const navData = [
         value: "fixtures",
         icon: "calendar",
         text: "Fixtures",
-    },
-    {
-        value: "live",
-        icon: "radio-button-on",
-        text: "Live",
     },
     {
         value: "competitions",

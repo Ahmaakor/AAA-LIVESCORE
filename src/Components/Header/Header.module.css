@@ -7,7 +7,7 @@
   justify-content: center;
   background-color: var(--surface-sp);
   box-shadow: 0 2px 16px 0 var(--effect-elevation1);
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
   color: #eaeff3;
   transition: box-shadow 0.2s;
 }
@@ -53,7 +53,7 @@
 }
 
 .logoContainer h1 {
-  font-size: 2.1rem;
+  font-size: 1.5rem;
   font-family: "Rajdhani", sans-serif;
   margin: 0;
   letter-spacing: 2px;
@@ -118,7 +118,7 @@
 
 .bottomNavLink {
   position: relative;
-  color: var(--on-color-default);
+  color: var(--on-color-secondary);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
@@ -135,18 +135,18 @@
   display: block;
   content: '';
   background-color: var(--primary-default);
-  height: 4px;
+  height: 2px;
   width: 0;
   transition: width 0.2s ease-in-out;
 }
 
-.bottomNavLink:hover::after, .bottomNavLink.active::after {
+.bottomNavLink.active::after {
   width: 100%;
 }
 
 .bottomNavLink:hover, .bottomNavLink.active {
-  background: var(--primary-highlight);
-  color: var(--primary-default);
+  /* background: var(--primary-highlight); */
+  color: var(--on-color-default);
 }
 
 @media (max-width: 900px) {

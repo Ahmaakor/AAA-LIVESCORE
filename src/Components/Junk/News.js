@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getNewsData } from '../../Data/NewsData';
+import { getNewsList } from '../../Data/NewsList';
 import { getTeamDetail } from '../../Data/TeamDetail';
 
 function News() {
@@ -12,7 +12,7 @@ function News() {
 
     useEffect(() => {
         async function fetchNews() {
-            const data = await getNewsData();
+            const data = await getNewsList();
             if (data) {
                 setNews(data);
             } else {

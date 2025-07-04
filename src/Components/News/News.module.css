@@ -16,11 +16,6 @@
   margin-bottom: 0.5rem;
 }
 
-.newsHeader p {
-  font-size: 1rem;
-  color: var(--on-surface-nLv2);
-}
-
 .newsList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

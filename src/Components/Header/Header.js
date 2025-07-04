@@ -1,4 +1,4 @@
-import React, { useState, UseEffect } from 'react'
+// import React, { useState, UseEffect } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../Assets/Images/logo.svg'
 import styles from './Header.module.css'
@@ -29,10 +29,9 @@ function Header() {
 
         <div className={styles.bottomBar}>
           <nav className={styles.bottomNav}>
-            <Link to="/" className={`${styles.bottomNavLink} ${styles.active}`}>Home</Link>
+            <Link to="/" className={`${styles.bottomNavLink} ${styles.active}`}>Scores</Link>
             <Link to="/news" className={styles.bottomNavLink}>News</Link>
-            <Link to="/live" className={styles.bottomNavLink}>Live</Link>
-            <Link to="/results" className={styles.bottomNavLink}>Results</Link>
+            <Link to="/favourites" className={styles.bottomNavLink}>Favourites</Link>
           </nav>
         </div>
 
