@@ -26,6 +26,10 @@ function News() {
     if (!updatedAt || !updatedAt.unit || updatedAt.time == null) return 'Unknown time';
     const time = updatedAt.time;
     switch (updatedAt.unit) {
+      case 'news.year':
+        return `${time} year ago`;
+      case 'news.years':
+        return `${time} years ago`;
       case 'news.day':
         return `${time} day ago`;
       case 'news.days':
@@ -34,10 +38,10 @@ function News() {
         return `${time} hour ago`;
       case 'news.hours':
         return `${time} hours ago`;
-      case 'news.munite':
-        return `${time} munite ago`;
-      case 'news.munites':
-        return `${time} munites ago`;
+      case 'news.minute':
+        return `${time} minute ago`;
+      case 'news.minutes':
+        return `${time} minutes ago`;
       case 'news.second':
       case 'news.seconds':
       case 'news.now':
@@ -86,7 +90,9 @@ function News() {
             </article>
           ))}
         </section>
+        
       ))}
+      
     </main>
   );
 };

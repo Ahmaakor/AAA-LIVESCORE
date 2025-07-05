@@ -2,8 +2,8 @@
   --primary-default: #2fdbe7;
   --primary-variant: #00050e;
   --primary-highlight: #2fdbe740;
-  --primary-hover: hsl(235, 100%, 79%);
-  --primary-selected: hsl(235, 100%, 69%);
+  --primary-hover: #8beff7;
+  --primary-selected: #5eecf7;
   --secondary-default: #46c252;
   --secondary-variant: #03692a;
   --secondary-highlight: rgba(70, 194, 82, 0.25);
@@ -99,9 +99,7 @@
 body {
   background-color: var(--surface-s0);
   color: var(--on-color-default);
-  font-family: "Nunito Sans", sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Sofia Sans", 'calibri', 'arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -125,12 +123,4 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   /* padding: 0 1rem; */
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Rajdhani", sans-serif;
 }
