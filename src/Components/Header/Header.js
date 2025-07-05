@@ -1,10 +1,12 @@
 // import React, { useState, UseEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../../Assets/Images/logo.svg'
 import styles from './Header.module.css'
 import SearchBar from '../SearchBar/SearchBar'
 
 function Header() {
+  const location = useLocation();
+
   return (
     <header className={styles.header}>
       <div className={`container ${styles.container}`}>
@@ -29,12 +31,26 @@ function Header() {
 
         <div className={styles.bottomBar}>
           <nav className={styles.bottomNav}>
-            <Link to="/" className={`${styles.bottomNavLink} ${styles.active}`}>Scores</Link>
-            <Link to="/news" className={styles.bottomNavLink}>News</Link>
-            <Link to="/favourites" className={styles.bottomNavLink}>Favourites</Link>
+            <Link
+              to="/"
+              className={`${styles.bottomNavLink} ${location.pathname === '/' ? styles.active : ''}`}
+            >
+              Scores
+            </Link>
+            <Link
+              to="/news"
+              className={`${styles.bottomNavLink} ${location.pathname.startsWith('/news') ? styles.active : ''}`}
+            >
+              News
+            </Link>
+            <Link
+              to="/favourites"
+              className={`${styles.bottomNavLink} ${location.pathname.startsWith('/favourites') ? styles.active : ''}`}
+            >
+              Favourites
+            </Link>
           </nav>
         </div>
-
       </div>
     </header>
   )

@@ -160,9 +160,6 @@
   .search_mobile {
     display: block;
   }
-  .bottomNav {
-    gap: 1rem;
-  }
 }
 
 @media (max-width: 600px) {
@@ -171,9 +168,6 @@
   }
   .bottomBar {
     padding-top: 0.5rem;
-  }
-  .bottomNav {
-    gap: 0.5rem;
   }
   .bottomNavLink {
     font-size: 1.1rem;

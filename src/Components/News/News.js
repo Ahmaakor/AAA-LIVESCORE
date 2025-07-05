@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./News.module.css";
 import { getNewsList } from '../../Data/NewsList';
 import { getTimeAgo } from "../../Utils/getTimeAgo";
+import Loading from "../Loading/Loading";
 
 function News() {
   const [news, setNews] = useState(null);
@@ -23,11 +24,6 @@ function News() {
     fetchNews();
   }, []);
 
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-  if (!news || !news.homepageArticles) return <div>No news available.</div>;
-
   return (
     <main className={`container ${styles.newsPage}`}>
       <section className={styles.newsHeader}>
@@ -38,12 +34,16 @@ function News() {
         </p>
       </section>
 
-      {news.homepageArticles.map((items, idx) => (
+      {loading && <Loading />}
+      {error && <div>{error}</div>}
+      {!loading && !error && (!news || !news.homepageArticles) && (
+        <div>No news available.</div>
+      )}
 
-        <section className={styles.newsList} key={idx}>
-          { items.articles.map((article, i) => (
-
-            <article className={styles.newsCard} key={i}>
+      {!loading && !error && news && news.homepageArticles && (
+        <section className={styles.newsList}>
+          {news.homepageArticles[0].articles.map((article, i) => (
+            <Link to={`/news/${article.slug}`} className={styles.newsCard} key={i}>
               {article.mainMedia && article.mainMedia.length > 0 && (
                 <img
                   src={article.mainMedia[0].gallery.url}
@@ -56,18 +56,13 @@ function News() {
                 <p className={styles.newsMeta}>
                   {getTimeAgo(article.updatedAt)}
                 </p>
-                <Link to={`/news/${article.slug}`} className={styles.readMore}>
-                  Read More →
-                </Link>
               </div>
-            </article>
+            </Link>
           ))}
         </section>
-        
-      ))}
-      
+      )}
     </main>
   );
-};
+}
 
 export default News;

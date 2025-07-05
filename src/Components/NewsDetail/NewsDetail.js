@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import styles from './NewsDetail.module.css'
 import { getNewsDetail } from '../../Data/NewsDetail'
 import { getTimeAgo } from "../../Utils/getTimeAgo";
+import Loading from "../Loading/Loading";
 
 function NewsDetail() {
   const { slug } = useParams();
@@ -27,7 +28,7 @@ function NewsDetail() {
     fetchDetail();
   }, [slug]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
   if (!newsDetail) return <div>No news detail available.</div>;
 
@@ -79,7 +80,7 @@ function NewsDetail() {
         <h1>{newsDetail.article.title}</h1>
         {/* <h2 className={styles.subTitle}>{newsDetail.article.subTitle}</h2> */}
         <div className={styles.meta}>
-          < div className={styles.publishedDetails} >
+          <div className={styles.publishedDetails} >
             <img src={`https://www.livescore.com${newsDetail.article.publishedBy.logo}`} alt={newsDetail.article.publishedBy.name} />
             <div className={styles.articleAP} >
               {newsDetail.article.authors && newsDetail.article.authors.length > 0 && (
@@ -132,26 +133,27 @@ function NewsDetail() {
       <div className={styles.relatedNews}>
         <h3>Related News</h3>
         <section className={styles.newsList}>
-        {newsDetail.article.related.relatedArticles.map((rel, idx) => (
-            <article className={styles.newsCard}  key={idx}>
-              {rel.mainMedia && rel.mainMedia.length > 0 && (
-                <img
-                  src={rel.mainMedia[0].gallery.url}
-                  alt={rel.title}
-                  className={styles.newsImage}
-                />
-              )}
-              <div className={styles.newsContent}>
-                <h2 className={styles.newsTitle}>{rel.title}</h2>
-                <p className={styles.newsMeta}>
-                  {getTimeAgo(rel.updatedAt)}
-                </p>
-                <Link to={`/news/${rel.slug}`} className={styles.readMore}>
-                  Read More →
-                </Link>
-              </div>
-            </article>
-        ))}
+          {newsDetail.article.related.relatedArticles.map((rel, idx) => {
+            // Remove '/en' from the start of rel.url if present
+            let cleanUrl = rel.url.startsWith('/en') ? rel.url.replace(/^\/en/, '') : rel.url;
+            return (
+              <Link to={cleanUrl} className={styles.newsCard} key={idx}>
+                {rel.mainMedia && rel.mainMedia.length > 0 && (
+                  <img
+                    src={rel.mainMedia[0].gallery.url}
+                    alt={rel.title}
+                    className={styles.newsImage}
+                  />
+                )}
+                <div className={styles.newsContent}>
+                  <h2 className={styles.newsTitle}>{rel.title}</h2>
+                  <p className={styles.newsMeta}>
+                    {getTimeAgo(rel.updatedAt)}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </section>
       </div>
     </div>

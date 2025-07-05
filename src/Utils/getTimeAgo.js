@@ -6,6 +6,14 @@ export function getTimeAgo(updatedAt) {
         return `${time} year ago`;
       case 'news.years':
         return `${time} years ago`;
+      case 'news.month':
+        return `${time} month ago`;
+      case 'news.months':
+        return `${time} months ago`;
+      case 'news.week':
+        return `${time} week ago`;
+      case 'news.weeks':
+        return `${time} weeks ago`;
       case 'news.day':
         return `${time} day ago`;
       case 'news.days':
