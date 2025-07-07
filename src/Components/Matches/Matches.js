@@ -1,25 +1,29 @@
 import React from 'react';
 import styles from './Matches.module.css';
-
-const matches = [
-  { id: 1, home: "Arsenal", away: "Chelsea", time: "18:00", status: "Upcoming" },
-  { id: 2, home: "Liverpool", away: "Man City", time: "20:00", status: "Upcoming" },
-  { id: 3, home: "Barcelona", away: "Real Madrid", time: "22:00", status: "Upcoming" },
-];
+import { matches } from './data';
 
 function Matches() {
   return (
-    <div className={styles.matches}>
-      <h2>Upcoming Matches</h2>
-      <ul className={styles.matchList}>
-        {matches.map(match => (
-          <li key={match.id} className={styles.matchCard}>
-            <span className={styles.teams}>{match.home} vs {match.away}</span>
-            <span className={styles.time}>{match.time}</span>
-            <span className={styles.status}>{match.status}</span>
-          </li>
-        ))}
-      </ul>
+    <div className={styles.container}>
+      <h2 className={styles.header}>Today</h2>
+      {matches.map((section, i) => (
+        <div key={i} className={styles.section}>
+          <div className={styles.tournament}>
+            <span>{section.name}</span>
+            <span className={styles.country}>{section.country}</span>
+          </div>
+          {section.games.map((match, idx) => (
+            <div key={idx} className={styles.match}>
+              <div className={styles.time}>{match.time}</div>
+              <div className={styles.teams}>
+                <span className={styles.team}>{match.team1}</span>
+                <span className={styles.team}>{match.team2}</span>
+              </div>
+              <div className={styles.star}>☆</div>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 // import React, { useState, UseEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import logo from '../../Assets/Images/logo.svg'
+import { ReactComponent as Logo } from '../../Assets/Images/logo.svg'
 import styles from './Header.module.css'
 import SearchBar from '../SearchBar/SearchBar'
 
@@ -12,7 +12,7 @@ function Header() {
       <div className={`container ${styles.container}`}>
         <div className={styles.topBar}>
           <div className={styles.logoContainer}>
-            <img src={logo} alt="Logo" className={styles.logo} />
+            <Logo className={styles.logo} />
             <h1>AAA LiveScore</h1>
           </div>
           
@@ -21,7 +21,7 @@ function Header() {
           </div>
 
           <div className={styles.actions}>
-            <button className={styles.actionButton}>Sign Up</button>
+            <Link to='/settings' className={styles.actionButton}><ion-icon name="settings-outline"></ion-icon></Link>
           </div>
         </div>
 

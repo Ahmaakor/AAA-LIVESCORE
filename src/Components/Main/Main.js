@@ -11,7 +11,7 @@ import Leagues from '../Leagues/Leagues';
 import Teams from '../Teams/Teams';
 
 function Main() {
-  const [currentPage, setCurrentPage] = useState("all");
+  const [currentPage, setCurrentPage] = useState("matches");
   return (
     <main className={`container ${styles.main}`}>
       <Sidebar currentPage={currentPage} onNavChange={setCurrentPage} />

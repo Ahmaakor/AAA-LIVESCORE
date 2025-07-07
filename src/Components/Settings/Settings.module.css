@@ -1,0 +1,186 @@
+.container {
+  background: var(--surface-s1, #171C1F);
+  padding: 2.5rem 2rem;
+  border-radius: 14px;
+  color: var(--on-color-default, #eaeff3);
+  max-width: 420px;
+  margin: 2.5rem auto;
+  font-family: inherit;
+  box-shadow: 0 2px 16px var(--effect-elevation1, rgba(0,0,0,0.18));
+}
+
+.title {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--on-color-default);
+  letter-spacing: 1px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  align-items: center;
+  color: var(--on-color-default);
+}
+
+.select {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--surface-s0, #00050e);
+  border: 1.5px solid var(--on-color-default);
+  color: var(--on-color-default, #eaeff3);
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.select:focus {
+  border-color: var(--primary-hover, #8beff7);
+}
+
+.switchWrapper {
+  margin-bottom: 1.7rem;
+  display: flex;
+  align-items: center;
+}
+
+.switchWrapper label{
+  display: flex;
+  align-items: center;
+}
+
+.switchLabel {
+  margin-left: 0.7rem;
+  font-size: 1rem;
+  color: var(--on-color-default, #eaeff3);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--primary-default, #2fdbe7);
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.button {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--primary-default, #2fdbe7);
+  color: #111517;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.08rem;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  box-shadow: 0 1px 8px var(--effect-elevation2, rgba(0,0,0,0.10));
+  transition: 0.2s;
+}
+
+.button:hover {
+  background: var(--primary-hover, #8beff7);
+  color: #00050e;
+}
+
+.customDropdown {
+  position: relative;
+  width: 100%;
+  background: var(--surface-s0, #00050e);
+  border: 1px solid var(--on-color-default);
+  color: var(--on-color-default, #eaeff3);
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: border 0.2s;
+  outline: none;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customDropdown.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  background: var(--surface-s1, #171C1F);
+}
+
+.selectedValue {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdownArrow {
+  margin-left: 1rem;
+  font-size: 1.1em;
+  color: var(--on-color-default);
+  pointer-events: none;
+}
+
+.dropdownList {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
+  background: var(--surface-s0, #00050e);
+  border-radius: 6px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 4px 16px var(--effect-elevation2, rgba(0,0,0,0.12));
+  box-shadow: 0px 2px 4px var(--on-surface-nLv6);
+  padding: 0.3rem 0;
+  /* --- Scrollbar styles --- */
+  scrollbar-width: thin;
+  scrollbar-color: var(--on-color-default, #eaeff3) var(--surface-s0);
+}
+
+/* Chrome, Edge, Safari */
+.dropdownList::-webkit-scrollbar {
+  width: 8px;
+  background: var(--surface-s0);
+  border-radius: 2px;
+}
+
+.dropdownList::-webkit-scrollbar-thumb {
+  background: var(--surface-s0);
+  border-radius: 2px;
+}
+
+.dropdownList::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover, #8beff7);
+}
+
+.dropdownOption {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  color: var(--on-color-default, #eaeff3);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dropdownOption:hover,
+.dropdownOption:focus {
+  background: var(--primary-highlight, #2fdbe740);
+  color: var(--primary-default, #2fdbe7);
+}
+
+.dropdownOption.selected {
+  background: var(--primary-selected, #5eecf7);
+  color: #00050e;
+  font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 1.2rem 0.5rem;
+    margin: 20% 1rem;
+  }
+}

@@ -9,7 +9,7 @@
   align-items: center;
   background-color: var(--surface-sp);
   box-shadow: 0 2px 16px 0 var(--effect-elevation1);
-  border-radius: 1.25rem;
+  border-radius: 0.5rem;
   padding: 1.5rem 1rem;
   color: #eaeff3;
   transition: box-shadow 0.2s;
