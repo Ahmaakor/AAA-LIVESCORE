@@ -233,6 +233,11 @@ h1 {
   font-weight: 600;
   margin: 0 0 0.3rem 0;
   color: var(--on-color-default);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;     /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .newsMeta {
@@ -277,7 +282,7 @@ h1 {
 }
 @media (max-width: 800px) {
   .newsDetail {
-    padding: 1.2rem 0.5rem;
+    padding: 1.2rem 0rem;
     grid-template-columns: 1fr;
   }
 
