@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Calendar.module.css';
 
 function Calendar({ onDateChange }) {
@@ -6,6 +6,24 @@ function Calendar({ onDateChange }) {
   const [selectedDate, setSelectedDate] = useState(today);
   const [calendarMonth, setCalendarMonth] = useState(today);
   const [chartVisible, setChartVisible] = useState(false);
+  const chartRef = useRef();
+
+  // Close chart on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (chartRef.current && !chartRef.current.contains(e.target)) {
+        setChartVisible(false);
+      }
+    };
+
+    if (chartVisible) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [chartVisible]);
 
   const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
 
@@ -19,15 +37,15 @@ function Calendar({ onDateChange }) {
   };
 
   const handlePrevChartMonth = () => {
-    const newMonth = new Date(calendarMonth);
-    newMonth.setMonth(newMonth.getMonth() - 1);
-    setCalendarMonth(newMonth);
+    const prev = new Date(calendarMonth);
+    prev.setMonth(prev.getMonth() - 1);
+    setCalendarMonth(prev);
   };
 
   const handleNextChartMonth = () => {
-    const newMonth = new Date(calendarMonth);
-    newMonth.setMonth(newMonth.getMonth() + 1);
-    setCalendarMonth(newMonth);
+    const next = new Date(calendarMonth);
+    next.setMonth(next.getMonth() + 1);
+    setCalendarMonth(next);
   };
 
   const handlePrevDate = () => {
@@ -52,31 +70,6 @@ function Calendar({ onDateChange }) {
     return date > oneYearLater;
   };
 
-  const renderDays = () => {
-    const totalDays = daysInMonth(calendarMonth.getMonth(), calendarMonth.getFullYear());
-    const days = [];
-    for (let i = 1; i <= totalDays; i++) {
-      const date = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), i);
-      const isSelected =
-        selectedDate.getDate() === i &&
-        selectedDate.getMonth() === calendarMonth.getMonth() &&
-        selectedDate.getFullYear() === calendarMonth.getFullYear();
-
-      const disabled = isFutureLimitExceeded(date);
-
-      days.push(
-        <span
-          key={i}
-          className={`${styles.day} ${isSelected ? styles.active : ''} ${disabled ? styles.disabled : ''}`}
-          onClick={() => !disabled && handleDayClick(i)}
-        >
-          {i}
-        </span>
-      );
-    }
-    return days;
-  };
-
   const getDisplayLabel = () => {
     const s = selectedDate.toDateString();
     const t = today.toDateString();
@@ -99,6 +92,45 @@ function Calendar({ onDateChange }) {
     });
   };
 
+  const renderDays = () => {
+    const year = calendarMonth.getFullYear();
+    const month = calendarMonth.getMonth();
+    const totalDays = daysInMonth(month, year);
+
+    const firstDayOfWeek = new Date(year, month, 1).getDay(); // 0 = Sunday
+    const days = [];
+
+    // Empty slots before 1st of month
+    for (let i = 0; i < firstDayOfWeek; i++) {
+      days.push(<span key={`empty-${i}`}></span>);
+    }
+
+    // Actual days
+    for (let i = 1; i <= totalDays; i++) {
+      const date = new Date(year, month, i);
+      const isSelected =
+        selectedDate.getDate() === i &&
+        selectedDate.getMonth() === month &&
+        selectedDate.getFullYear() === year;
+
+      const disabled = isFutureLimitExceeded(date);
+
+      days.push(
+        <span
+          key={i}
+          className={`${styles.day} ${isSelected ? styles.active : ''} ${disabled ? styles.disabled : ''}`}
+          onClick={() => !disabled && handleDayClick(i)}
+        >
+          {i}
+        </span>
+      );
+    }
+
+    return days;
+  };
+
+  const weekdays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
   return (
     <div className={styles.calendar}>
       <div className={styles.dateDisplay}>
@@ -116,7 +148,7 @@ function Calendar({ onDateChange }) {
         <span className={styles.dateNum}>{selectedDate.getDate()}</span>
 
         {chartVisible && (
-          <div className={styles.calendarChart}>
+          <div className={styles.calendarChart} ref={chartRef}>
             <div className={styles.calsHead}>
               <p>
                 {calendarMonth.toLocaleString('default', { month: 'long' })}{' '}
@@ -129,7 +161,13 @@ function Calendar({ onDateChange }) {
                 <ion-icon name="chevron-forward-outline"></ion-icon>
               </span>
             </div>
-            <div className={styles.daysGrid}>{renderDays()}</div>
+
+            <div className={styles.daysGrid}>
+              {weekdays.map((day, index) => (
+                <strong key={`week-${index}`}>{day}</strong>
+              ))}
+              {renderDays()}
+            </div>
           </div>
         )}
       </div>
