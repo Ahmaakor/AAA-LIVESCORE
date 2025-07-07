@@ -19,10 +19,10 @@
   --on-color-default: #eaeff3;
   --on-color-hover: #eaeff3;
   --on-color-selected: #f2f2f2;
-  --surface-s0: #00050e;
+  --surface-s0: #000307;
   --surface-s1: #171C1F;
   --surface-s2: rgba(0, 0, 0, 0.5);
-  --surface-sp: #272C32;
+  --surface-sp: #0e0e0e;
   --surface-t: #ECEDEF;
   --on-surface-nLv1: #ECEDEF;
   --on-surface-nLv2: rgba(255, 255, 255, 0.75);

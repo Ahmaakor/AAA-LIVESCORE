@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import styles from './Main.module.css';
 import Sidebar from '../SIdebar/Sidebar';
 import Played from '../Played/Played';
-import All from '../All/All';
-import Fixtures from '../Fixtures/Fixtures';
 import Matches from '../Matches/Matches';
 import Live from '../Live/Live';
 import Competitions from '../Competitions/Competitions';
@@ -16,10 +14,8 @@ function Main() {
     <main className={`container ${styles.main}`}>
       <Sidebar currentPage={currentPage} onNavChange={setCurrentPage} />
       <section className={styles.mainContent}>
-        {currentPage === "all" && <All />}
-        {currentPage === "fixtures" && <Fixtures />}
         {currentPage === "matches" && <Matches />}
-        {currentPage === "live" && <Live />}
+        {currentPage === "regions" && <Live />}
         {currentPage === "competitions" && <Competitions />}
         {currentPage === "leagues" && <Leagues />}
         {currentPage === "teams" && <Teams />}

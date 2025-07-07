@@ -1,11 +1,19 @@
 import React from 'react';
 import styles from './Matches.module.css';
+import Calender from '../Calendar/Calendar';
 import { matches } from './data';
 
 function Matches() {
+  const handleDateChange = (date) => {
+    console.log('Selected Date:', date.toDateString());
+  };
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.header}>Today</h2>
+      <header className={styles.header}>
+        <div className={styles.liveBtn} >Live</div>
+        <Calender onDateChange={handleDateChange} />
+      </header>
       {matches.map((section, i) => (
         <div key={i} className={styles.section}>
           <div className={styles.tournament}>

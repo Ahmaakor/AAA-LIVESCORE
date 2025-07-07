@@ -97,14 +97,16 @@
 
 @media (max-width: 900px) {
   .sidebar {
-    width: calc(100vw - 3rem);
+    width: calc(100vw - 2rem);
     height: auto;
     max-height: none;
     padding: 0.5rem 0.5rem;
     border-radius: 2rem;
     gap: 1.5rem;
     position: sticky;
-  top: 0;
+    top: 0;
+    z-index: 1200;
+    border-bottom: 2px solid var(--on-surface-nLv4);
   }
 
   .nav {
@@ -122,35 +124,19 @@
 
   .navItem {
     font-size: 1rem;
-    padding: 0.5rem 0.75rem;
-    min-width: 80px;
+    padding: 0.5rem 0.6rem;
+    gap: .5rem;
+    min-width: 60px;
     flex: 0 0 auto;
     border-left: none;
-    /* border-bottom: 4px solid transparent; */
     border-radius: 0.2rem 0.2rem 0 0;
   }
   .navItem.active {
-    /* border-bottom: 4px solid var(--primary-default); */
     border-left: none;
   }
 
   .navIcon {
     font-size: 1.2em;
-  }
-
-  .userSection {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding-top: 1rem;
-  }
-
-  .avatar {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .username {
-    font-size: 0.9rem;
+    min-width: none;
   }
 }

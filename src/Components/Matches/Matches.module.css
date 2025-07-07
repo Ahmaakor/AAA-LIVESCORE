@@ -6,9 +6,29 @@
 }
 
 .header {
-  font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: white;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.liveBtn{
+  width: 3rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--surface-s1);
+  color: var(--on-color-default);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.liveBtn.active{
+  background-color: var(--on-color-default);
+  color: var(--surface-s0);
 }
 
 .section {
@@ -60,4 +80,16 @@
   font-size: 1.2rem;
   color: #888;
   cursor: pointer;
+}
+
+@media (max-width: 900px){
+  .header{
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 400px){
+  .header{
+    gap: 0.5rem;
+  }
 }
