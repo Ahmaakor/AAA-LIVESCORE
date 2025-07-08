@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './Settings.module.css';
-import { timezones } from './timezones';
+import { timezones } from '../../Data/timezones';
 
 // Convert "UTC +02:30" to 2.5, "UTC -01:00" to -1
 const parseTimezoneOffset = (tzString) => {

@@ -1,12 +1,19 @@
 import React from "react";
-import logo from "../../Assets/Images/logo.gif";
 import styles from "./Loading.module.css";
+import { Tailspin } from 'ldrs/react'
+import 'ldrs/react/Tailspin.css'
+
+// Default values shown
 
 function Loading() {
   return (
     <div className={styles.loading}>
-      <img src={logo} alt="Loading..." className={styles.logoAnim} />
-      <span>Loading...</span>
+      <Tailspin
+        size="30"
+        stroke="4"
+        speed="1"
+        color="var(--primary-default)"
+      />
     </div>
   );
 }
