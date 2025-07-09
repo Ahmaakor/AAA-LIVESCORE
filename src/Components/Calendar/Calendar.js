@@ -8,21 +8,29 @@ function Calendar({ onDateChange }) {
   const [chartVisible, setChartVisible] = useState(false);
   const chartRef = useRef();
 
-  // Close chart on outside click
+  // Close chart only when clicked outside
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (chartRef.current && !chartRef.current.contains(e.target)) {
+      if (
+        chartRef.current &&
+        !chartRef.current.contains(e.target) &&
+        !e.target.closest(`.${styles.selectDate}`)
+      ) {
         setChartVisible(false);
       }
     };
 
+    // Delay event binding slightly
     if (chartVisible) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
+      const timeout = setTimeout(() => {
+        document.addEventListener('click', handleClickOutside);
+      }, 0);
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+      return () => {
+        clearTimeout(timeout);
+        document.removeEventListener('click', handleClickOutside);
+      };
+    }
   }, [chartVisible]);
 
   const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
@@ -96,11 +104,11 @@ function Calendar({ onDateChange }) {
     const year = calendarMonth.getFullYear();
     const month = calendarMonth.getMonth();
     const totalDays = daysInMonth(month, year);
+    const firstDayOfWeek = new Date(year, month, 1).getDay(); // Sunday = 0
 
-    const firstDayOfWeek = new Date(year, month, 1).getDay(); // 0 = Sunday
     const days = [];
 
-    // Empty slots before 1st of month
+    // Empty slots before the first day
     for (let i = 0; i < firstDayOfWeek; i++) {
       days.push(<span key={`empty-${i}`}></span>);
     }
