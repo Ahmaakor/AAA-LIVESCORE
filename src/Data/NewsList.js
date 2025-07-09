@@ -5,7 +5,7 @@ export async function getNewsList() {
         method: 'GET',
         url: 'https://livescore-real-time.p.rapidapi.com/news/list',
         headers: {
-            'x-rapidapi-key': '6bc0845dfcmsh3eba632a4b95e8bp1b7757jsne2fc53a9afac',
+            'x-rapidapi-key': '75ca0deb2fmshf72321e88e5311fp144cc3jsnfb5cef85173a',
             'x-rapidapi-host': 'livescore-real-time.p.rapidapi.com'
         }
     };

@@ -38,43 +38,76 @@
 .tournament {
   font-size: 0.9rem;
   font-weight: bold;
-  color: #c0c0c0;
+  color: var(--on-color-primary);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.tournamentFlag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+.tournamentFlag img{
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.tournament .tournamentInfo{
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
 }
 
 .tournament .tournamentName {
   font-size: 0.8rem;
   font-weight: normal;
-  color: #888;
+  color: var(--neutral-default);
 }
 
 .match {
-  background-color: #1c1c1c;
+  background-color: var(--surface-s1);
   padding: 0.75rem;
   border-radius: 6px;
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
+  gap: 1rem;
   justify-content: space-between;
+  transition: 0.2s;
+}
+
+.match:hover {
+  background-color: var(--neutral-highlight);
 }
 
 .time {
   font-size: 0.85rem;
   color: #ccc;
-  width: 50px;
+  width: 40px;
+  text-align: center;
 }
 
 .teams {
   flex: 1;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .team {
   font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.team img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
 }
 
 .vs {
